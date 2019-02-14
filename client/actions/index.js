@@ -32,3 +32,28 @@ function receivedUser (users) {
     users
   }
 }
+
+// GIFT ACTIONS SECTION YO!!
+export const getGifts = () => {
+  return function (dispatch) {
+    dispatch(requestGifts())
+    request
+      .get(`${apiUrl}/gifts`)
+      .then(res => {
+        const gifts = res.body
+        dispatch(receivedGifts(gifts))
+      })
+  }
+}
+
+function requestGifts () {
+  return {
+    type: 'REQUEST_GIFTS'
+  }
+}
+function receivedGifts (gifts) {
+  return {
+    type: 'RECEIVING_GIFTS',
+    gifts
+  }
+}
