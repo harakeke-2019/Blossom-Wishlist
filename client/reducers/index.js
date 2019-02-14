@@ -1,9 +1,12 @@
 import {combineReducers} from 'redux'
-
+import isLoading from './isLoading'
+import giftee from './giftee'
+import users from './users'
 
 // import otherReducer from './other-reducer'
 
 export default combineReducers({
-  // otherReducer
- 
+  isLoading,
+  giftee,
+  users
 })

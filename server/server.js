@@ -6,6 +6,6 @@ const server = express()
 server.use(express.json())
 server.use(express.static(path.join(__dirname, './public')))
 
-server.use('/app', router)
+server.use('/api', router)
 
 module.exports = server
