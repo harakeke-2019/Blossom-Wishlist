@@ -14,6 +14,7 @@ export const getUsers = () => {
   }
 }
 
+<<<<<<< HEAD
 export const getWishList = (id) => {
   return function (dispatch) {
     dispatch(requestWishList())
@@ -27,6 +28,9 @@ export const getWishList = (id) => {
 }
 
 export default function setGiftee (id) {
+=======
+export const setGiftee = (id) => {
+>>>>>>> c0a02c29b730bdd2578ac182d31154e3572ea503
   return {
     type: 'SET_GIFTEE',
     id
@@ -45,6 +49,7 @@ function receivedUser (users) {
   }
 }
 
+<<<<<<< HEAD
 function requestWishList () {
   return {
     type: 'REQUESTING_WISHLIST',
@@ -55,5 +60,74 @@ function receivedWishList (wishList) {
   return {
     type: 'RECEIVING_WISHLIST',
     wishList
+=======
+export const addToWishlist = (newGift) => {
+  return {
+    type: 'SAVE_GIFT',
+    newGift
+  }
+}
+
+export function saveGift (newGift) {
+  return function (dispatch) {
+    // we're optimistic ;)
+    dispatch(requestGift())
+    dispatch(addToWishlist(newGift))
+    request.post('http://localhost:3000/api/addWish')
+      .send(newGift)
+      .then(() => {
+        dispatch(receiveGift())
+      })
+      .catch(err => {
+        dispatch(receiveGift())
+        dispatch(removeFromWishlist(newGift.id))
+        console.error(err)
+      })
+  }
+}
+
+// GIFT ACTIONS SECTION YO!!
+export const getCart = () => {
+  return function (dispatch) {
+    dispatch(requestCart())
+    request
+      .get(`${apiUrl}/cart`)
+      .then(res => {
+        const cart = res.body
+        dispatch(updateCart(cart))
+      })
+  }
+}
+
+function requestGift () {
+  return {
+    type: 'REQUESTING_GIFT'
+  }
+}
+
+function receiveGift () {
+  return {
+    type: 'RECEIVING_GIFT'
+  }
+}
+
+export const removeFromWishlist = id => {
+  return {
+    type: 'REMOVE_FROM_WISHLIST',
+    id
+  }
+}
+
+export function requestCart () {
+  return {
+    type: 'REQUEST_CART'
+  }
+}
+
+export function updateCart (cart) {
+  return {
+    type: 'RECEIVING_CART',
+    cart
+>>>>>>> c0a02c29b730bdd2578ac182d31154e3572ea503
   }
 }
