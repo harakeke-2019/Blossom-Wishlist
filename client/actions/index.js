@@ -58,6 +58,19 @@ export function saveGift (newGift) {
   }
 }
 
+// GIFT ACTIONS SECTION YO!!
+export const getCart = () => {
+  return function (dispatch) {
+    dispatch(requestCart())
+    request
+      .get(`${apiUrl}/cart`)
+      .then(res => {
+        const cart = res.body
+        dispatch(updateCart(cart))
+      })
+  }
+}
+
 function requestGift () {
   return {
     type: 'REQUESTING_GIFT'
@@ -74,5 +87,18 @@ export const removeFromWishlist = id => {
   return {
     type: 'REMOVE_FROM_WISHLIST',
     id
+  }
+}
+
+export function requestCart () {
+  return {
+    type: 'REQUEST_CART'
+  }
+}
+
+export function updateCart (cart) {
+  return {
+    type: 'RECEIVING_CART',
+    cart
   }
 }
