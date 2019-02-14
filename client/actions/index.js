@@ -14,6 +14,18 @@ export const getUsers = () => {
   }
 }
 
+export const getWishList = (id) => {
+  return function (dispatch) {
+    dispatch(requestWishList())
+    request
+      .get(`${apiUrl}/wishList`)
+      .then(res => {
+        const wishList = res.body
+        dispatch(receivedWishList(wishList))
+      })
+  }
+}
+
 export default function setGiftee (id) {
   return {
     type: 'SET_GIFTEE',
@@ -30,5 +42,18 @@ function receivedUser (users) {
   return {
     type: 'RECEIVING_USERS',
     users
+  }
+}
+
+function requestWishList () {
+  return {
+    type: 'REQUESTING_WISHLIST',
+    wishList
+  }
+}
+function receivedWishList (wishList) {
+  return {
+    type: 'RECEIVING_WISHLIST',
+    wishList
   }
 }

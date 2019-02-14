@@ -6,6 +6,10 @@ const isLoading = (state = initialLoadingState, action) => {
       return true
     case 'RECEIVING_USERS':
       return false
+    case 'REQUESTING_WISHLIST':
+      return true
+    case 'RECEIVING_WISHLIST':
+      return false
     default:
       return state
   }

@@ -7,4 +7,10 @@ function getUsers (db = connection) {
     .select()
 }
 
-module.exports = {getUsers}
+function getWishList (id,db = connection) {
+  return db('gifts')
+    .where('user_id', id)
+    .select()
+}
+
+module.exports = { getUsers, getWishList }
