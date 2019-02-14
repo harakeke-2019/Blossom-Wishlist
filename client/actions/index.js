@@ -14,7 +14,23 @@ export const getUsers = () => {
   }
 }
 
+<<<<<<< HEAD
+export const getWishList = (id) => {
+  return function (dispatch) {
+    dispatch(requestWishList())
+    request
+      .get(`${apiUrl}/wishList`)
+      .then(res => {
+        const wishList = res.body
+        dispatch(receivedWishList(wishList))
+      })
+  }
+}
+
+export default function setGiftee (id) {
+=======
 export const setGiftee = (id) => {
+>>>>>>> c0a02c29b730bdd2578ac182d31154e3572ea503
   return {
     type: 'SET_GIFTEE',
     id
@@ -33,6 +49,18 @@ function receivedUser (users) {
   }
 }
 
+<<<<<<< HEAD
+function requestWishList () {
+  return {
+    type: 'REQUESTING_WISHLIST',
+    wishList
+  }
+}
+function receivedWishList (wishList) {
+  return {
+    type: 'RECEIVING_WISHLIST',
+    wishList
+=======
 export const addToWishlist = (newGift) => {
   return {
     type: 'SAVE_GIFT',
@@ -100,5 +128,6 @@ export function updateCart (cart) {
   return {
     type: 'RECEIVING_CART',
     cart
+>>>>>>> c0a02c29b730bdd2578ac182d31154e3572ea503
   }
 }

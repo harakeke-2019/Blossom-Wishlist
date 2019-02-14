@@ -4,9 +4,10 @@ import setGiftee from '../actions'
 
 class User extends React.Component {
   
-  handleClick =() =>{
+  handleClick = () =>{
     this.props.dispatch(setGiftee(this.props.user.id))
   }
+  
   render () {
     return (
       <div>
