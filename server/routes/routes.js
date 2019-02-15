@@ -36,4 +36,21 @@ router.post('/addWish', (req, res) => {
     })
 })
 
+router.post('/updateGifts', (req, res) => {
+  const wishIds = getWishIds(req.body)
+  db.updateWishes(wishIds)
+    .then(() => {
+      res.json('Good job')
+    })
+    .catch(err => {
+      res.status(500).send(err)
+    })
+})
+
+function getWishIds(wishes) {
+  return wishes.map(wish => {
+    return wish.id
+  })
+}
+
 module.exports = router
