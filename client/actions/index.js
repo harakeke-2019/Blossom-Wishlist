@@ -26,10 +26,10 @@ export const getWishList = (id) => {
   }
 }
 
-export const setGiftee = (id) => {
+export const setGiftee = (giftee) => {
   return {
     type: 'SET_GIFTEE',
-    id
+    giftee
   }
 }
 
@@ -48,8 +48,7 @@ function receivedUser (users) {
 
 function requestWishList () {
   return {
-    type: 'REQUESTING_WISHLIST',
-    
+    type: 'REQUESTING_WISHLIST'  
   }
 }
 

@@ -1,11 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {setGiftee} from '../actions'
+import {setGiftee, getWishList} from '../actions'
 
 class User extends React.Component {
   
   handleClick = () =>{
-    this.props.dispatch(setGiftee(this.props.user.id))
+    this.props.dispatch(setGiftee(this.props.user))
+    this.props.dispatch(getWishList(this.props.user.id))
   }
   
   render () {

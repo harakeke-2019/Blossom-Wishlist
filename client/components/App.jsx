@@ -10,7 +10,7 @@ const App = (props) => {
     <div>
       <Users />
       <Cart />
-      {props.id && <WishList />}
+      {props.giftee && <WishList />}
       <AddGift />
 
     </div>
@@ -19,7 +19,7 @@ const App = (props) => {
 
 function mapStateToProps (state) {
   return {
-    id: state.giftee
+    giftee: state.giftee
   }
 }
 

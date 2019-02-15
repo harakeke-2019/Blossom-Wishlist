@@ -29,7 +29,7 @@ class AddGift extends React.Component {
     const newGift = {
       item: this.state.item, 
       url: this.state.url, 
-      id: this.props.id
+      id: this.props.giftee.id
     }
     this.props.dispatch(saveGift(newGift))
     this.resetForm()
@@ -49,7 +49,7 @@ class AddGift extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    id: state.giftee
+    giftee: state.giftee
   }
 }
 
