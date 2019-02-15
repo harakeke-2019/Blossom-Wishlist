@@ -26,6 +26,13 @@ export const getWishList = (id) => {
   }
 }
 
+export const addToCart = (wish) => {
+  return {
+    type: 'ADD_TO_CART',
+    wish
+  }
+}
+
 export const setGiftee = (giftee) => {
   return {
     type: 'SET_GIFTEE',

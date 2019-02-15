@@ -1,8 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-// import {getGifts} from '../actions'
-// import {requestGifts} from '../actions'
-// import {receivedGifts} from '../actions'
 
 class Gifts extends React.Component {
 
@@ -10,7 +7,7 @@ class Gifts extends React.Component {
     return (
       <div>
         CART: <br/>
-        {this.props.gifts[0]}
+        {/* {this.props.gifts[0]} */}
       </div>
     )
   }

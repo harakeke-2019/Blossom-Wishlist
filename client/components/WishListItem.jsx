@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {addToCart} from '../actions'
 
 class WishListItem extends React.Component {
   
