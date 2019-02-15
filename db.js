@@ -7,7 +7,7 @@ function getUsers (db = connection) {
     .select()
 }
 
-function getWishList (id,db = connection) {
+function getWishList (id, db = connection) {
   return db('gifts')
     .where('user_id', id)
     .select()
@@ -23,5 +23,10 @@ function addWish (newGift, db = connection) {
   return db('gifts')
     .insert(newGift)
 }
+function updateWishes (wishIds, db = connection) {
+  return db('gifts')
+    .whereIn('id', wishIds)
+    .update('purchased', true)
+}
 
-module.exports = { getUsers, getWishList, addWish }
+module.exports = { getUsers, getWishList, addWish, updateWishes }
