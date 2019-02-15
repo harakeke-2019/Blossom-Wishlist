@@ -10,7 +10,7 @@ const App = (props) => {
     <div>
       <Users />
       <Cart />
-      {props.giftee && <WishList />}
+      {props.giftee !== 0 && <WishList />}
       <AddGift />
 
     </div>
