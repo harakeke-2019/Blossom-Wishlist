@@ -1,13 +1,15 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import CartItem from './CartItem'
 
 class Gifts extends React.Component {
-
   render () {
     return (
       <div>
-        CART: <br/>
-        {/* {this.props.gifts[0]} */}
+        {this.props.gifts.map((gift) => {
+          return <CartItem key = {gift.name} gift = {gift}/>
+        })}
+        <a href ="#">Check Out</a>
       </div>
     )
   }
