@@ -13,9 +13,11 @@ class WishList extends React.Component {
     return (
       <div>
         Hello Users
-        {this.props.wishList.map(wishList => {
-          return <WishListItem wishList={wishList} key={wishList.item} />
-        })}
+        {this.props.wishList && this.props.wishList.map(wishList => {
+         // console.log('wishList',wishList.item)
+          return <WishListItem wishList={wishList}/>
+       
+      })}
       </div>
     )
   }

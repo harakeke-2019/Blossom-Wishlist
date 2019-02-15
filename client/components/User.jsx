@@ -11,7 +11,7 @@ class User extends React.Component {
   render () {
     return (
       <div>
-        <a href='#'onClick = {this.handleClick}>{this.props.user.name}</a>
+        <a href='#'onClick = {()=>{this.handleClick}}>{this.props.user.name}</a>
       </div>
     )
   }

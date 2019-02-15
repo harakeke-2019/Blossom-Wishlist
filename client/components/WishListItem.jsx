@@ -12,6 +12,7 @@ class WishListItem extends React.Component {
       <div>
         {this.props.wishList.item}
         <a href ='#' onClick = {this.addToCart}>Add To Cart</a>
+        
       </div>
     )
   }
