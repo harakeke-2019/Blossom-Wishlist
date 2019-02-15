@@ -26,4 +26,14 @@ router.get('/wishList', (req, res) => {
     })
 })
 
+router.post('/addWish', (req, res) => {
+  db.addWish(req.body)
+    .then(() => {
+      res.json('Good job')
+    })
+    .catch(err => {
+      res.status(500).send(err)
+    })
+})
+
 module.exports = router
