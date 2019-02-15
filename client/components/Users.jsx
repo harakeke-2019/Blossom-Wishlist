@@ -11,7 +11,6 @@ class Users extends React.Component {
   render () {
     return (
       <div>
-        Hello Users
         {this.props.users && this.props.users.map(user => {
           return <User user={user} key={user.name}/>
         })}

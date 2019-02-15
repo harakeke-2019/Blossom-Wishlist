@@ -1,0 +1,60 @@
+
+body{
+  font-family: 'Hanalei Fill', cursive;
+  font-family: 'Roboto', sans-serif;
+}
+.background {
+    position: relative;
+    background: url("images/christmas.jpg"); 
+    background-position: center;
+    background-size: 100%;
+    min-height: 650px; }
+.navbar {
+  background: #fff; 
+  height: 70px;
+  font-size: 2.5rem;
+  box-shadow: 2px 2px 5px #3292a6;
+  text-align: center;
+  margin: 0px;
+}
+
+.column {
+    float: left;
+    width: 31%;
+    height: 90vh;
+    color: white;
+    margin: 10px;
+    box-shadow: 2px 2px 5px #3292a6;
+    font-size: 1.8rem;
+  }
+.left{
+  background-color: rgba(255, 255, 0, 0.6);
+  color: black;
+
+  }
+
+.middle{
+  background-color: rgba(156, 167, 226, 0.815)
+  }
+
+.right{
+  background-color: rgba(255, 0, 0, 0.6)
+}
+  
+.row:after {
+    content: "";
+    display: table;
+    clear: both;}
+
+h1{
+  font-size: 2.5rem;
+}
+h2{
+  font-size: 1.8rem;
+}
+h3{
+  font-size: 1.2rem;
+}
+p{
+  font-size: 1.2rem;
+}
