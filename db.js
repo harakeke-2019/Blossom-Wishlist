@@ -13,4 +13,15 @@ function getWishList (id,db = connection) {
     .select()
 }
 
-module.exports = { getUsers, getWishList }
+function addWish (newGift, db = connection) {
+  newGift = {
+    user_id: newGift.id,
+    url: newGift.url,
+    item: newGift.item,
+    purchased: false
+  }
+  return db('gifts')
+    .insert(newGift)
+}
+
+module.exports = { getUsers, getWishList, addWish }

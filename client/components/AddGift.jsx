@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 // import setGiftee from '../actions'
-import saveGift from '../actions'
+import {saveGift} from '../actions'
 
 class AddGift extends React.Component {
   constructor(props) {
@@ -12,12 +12,12 @@ class AddGift extends React.Component {
    }
   }
 
-  resetForm (evt) {
+  resetForm = (evt) => {
     this.setState({
-      item: {...defaultState},
-      url: {}
+      item: '',
+      url: ''
     })
-} 
+  } 
 
   handleChange = (evt) => {
       this.setState({
@@ -25,17 +25,23 @@ class AddGift extends React.Component {
       })
   }
 
-  handleSumbit =(evt) => {
-    this.props.dispatch(saveGift({item: this.state.item, url: this.state.url, id: this.props.id})),
+  handleSubmit =(evt) => {
+    const newGift = {
+      item: this.state.item, 
+      url: this.state.url, 
+      id: this.props.id
+    }
+    this.props.dispatch(saveGift(newGift))
     this.resetForm()
   }
 
   render () {
     return (
       <div>
+        Add Wish
         <input type='text' name='item' placeholder='gift' value={this.state.item} onChange={this.handleChange}/>
         <input type='text' name='url' placeholder='url' value={this.state.url} onChange={this.handleChange}/>
-        <button type='submit' onClick={this.handleSubmit} />
+        <button type='submit' onClick={this.handleSubmit}>Submit</button>
       </div>
     )
   }
