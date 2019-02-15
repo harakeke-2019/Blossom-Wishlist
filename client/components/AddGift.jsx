@@ -39,8 +39,13 @@ class AddGift extends React.Component {
     return (
       <div>
         Add Wish
+        <br/>
+        <br/>
         <input type='text' name='item' placeholder='gift' value={this.state.item} onChange={this.handleChange}/>
+        <br/>
+        <br/>
         <input type='text' name='url' placeholder='url' value={this.state.url} onChange={this.handleChange}/>
+        <br/>
         <button type='submit' onClick={this.handleSubmit}>Submit</button>
       </div>
     )
