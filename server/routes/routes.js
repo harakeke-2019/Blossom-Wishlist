@@ -16,8 +16,8 @@ router.get('/users', (req, res) => {
     })
 })
 
-router.get('/wishList', (req, res) => {
-  db.getWishList(req.body.id)
+router.get('/wishList/:id', (req, res) => {
+  db.getWishList(req.params.id)
     .then((wishList) => {
       console.log('wishList', wishList)
       res.json(wishList)

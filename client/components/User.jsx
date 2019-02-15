@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import setGiftee from '../actions'
+import {setGiftee} from '../actions'
 
 class User extends React.Component {
   
@@ -11,7 +11,7 @@ class User extends React.Component {
   render () {
     return (
       <div>
-        <a href='#'onClick = {()=>{this.handleClick}}>{this.props.user.name}</a>
+        <a href='#'onClick={this.handleClick}>{this.props.user.name}</a>
       </div>
     )
   }

@@ -2,21 +2,25 @@ import React from 'react'
 import Users from './Users'
 import Cart from './Cart'
 import WishList from './WishList'
-import WishListItem from './WishListItem'
 import AddGift from './AddGift'
+import { connect } from 'react-redux'
 
-
-const App = () => {
+const App = (props) => {
   return (
     <div>
       <Users />
       <Cart />
-      <WishList />
-      <WishListItem />
+      {props.id && <WishList />}
       <AddGift />
 
     </div>
   )
 }
 
-export default App
+function mapStateToProps (state) {
+  return {
+    id: state.giftee
+  }
+}
+
+export default connect(mapStateToProps)(App)

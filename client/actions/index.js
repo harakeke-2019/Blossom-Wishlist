@@ -18,7 +18,7 @@ export const getWishList = (id) => {
   return function (dispatch) {
     dispatch(requestWishList())
     request
-      .get(`${apiUrl}/wishList`)
+      .get(`${apiUrl}/wishList/${id}`)
       .then(res => {
         const wishList = res.body
         dispatch(receivedWishList(wishList))
