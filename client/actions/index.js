@@ -104,6 +104,30 @@ export const getCart = () => {
   }
 }
 
+export const checkOutGifts = (gifts) => {
+  return function (dispatch) {
+    // we're optimistic ;)
+    //dispatch(requestCheckOut())
+    dispatch(clearCart())
+    // request.post('http://localhost:3000/api/addWish')
+    //   .send(newGift)
+    //   .then(() => {
+    //     dispatch(receiveGift())
+    //   })
+    //   .catch(err => {
+    //     dispatch(receiveGift())
+    //     dispatch(removeFromWishlist(newGift.id))
+    //     console.error(err)
+    //   })
+  }
+}
+
+function clearCart () {
+  return {
+    type: 'CLEAR_CART'
+  }
+}
+
 function requestGift () {
   return {
     type: 'REQUESTING_GIFT'

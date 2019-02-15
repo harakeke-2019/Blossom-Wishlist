@@ -6,6 +6,8 @@ const gifts = (state = initialGiftState, action) => {
       return action.gifts
     case 'ADD_TO_CART':
       return [...state, action.wish]
+    case 'CLEAR_CART':
+      return []
     default:
       return state
   }
