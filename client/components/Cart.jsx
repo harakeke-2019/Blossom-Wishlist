@@ -19,7 +19,7 @@ class Gifts extends React.Component {
 function mapStateToProps (state) {
   return {
     gifts: state.gifts,
-    id: state.id
+    giftee: state.giftee
   }
 }
 

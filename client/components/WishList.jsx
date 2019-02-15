@@ -1,20 +1,16 @@
 // import addgift
 import React from 'react'
 import { connect } from 'react-redux'
-import { getWishList } from '../actions'
 import WishListItem from './WishListItem'
 
 class WishList extends React.Component {
-  componentDidMount () {
-    this.props.dispatch(getWishList(this.props.id))
-  }
 
   render () {
     return (
       <div>
-        Hello Users
-        {this.props.wishList.map(wishList => {
-          return <WishListItem wishList={wishList} key={wishList.item} />
+        {`${this.props.giftee.name}'s Wishlist`}
+        {this.props.wishList && this.props.wishList.map(wish => {
+          return <WishListItem key={wish.item} wish={wish}/>
         })}
       </div>
     )
@@ -24,7 +20,7 @@ class WishList extends React.Component {
 function mapStateToProps (state) {
   return {
     wishList: state.wishList,
-    id: state.giftee
+    giftee: state.giftee
   }
 }
 

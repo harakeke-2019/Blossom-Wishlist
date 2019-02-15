@@ -18,7 +18,7 @@ export const getWishList = (id) => {
   return function (dispatch) {
     dispatch(requestWishList())
     request
-      .get(`${apiUrl}/wishList`)
+      .get(`${apiUrl}/wishList/${id}`)
       .then(res => {
         const wishList = res.body
         dispatch(receivedWishList(wishList))
@@ -26,10 +26,10 @@ export const getWishList = (id) => {
   }
 }
 
-export const setGiftee = (id) => {
+export const setGiftee = (giftee) => {
   return {
     type: 'SET_GIFTEE',
-    id
+    giftee
   }
 }
 
@@ -48,8 +48,7 @@ function receivedUser (users) {
 
 function requestWishList () {
   return {
-    type: 'REQUESTING_WISHLIST',
-    wishList
+    type: 'REQUESTING_WISHLIST'  
   }
 }
 
