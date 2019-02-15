@@ -26,6 +26,13 @@ export const getWishList = (id) => {
   }
 }
 
+export const addToCart = (wish) => {
+  return {
+    type: 'ADD_TO_CART',
+    wish
+  }
+}
+
 export const setGiftee = (giftee) => {
   return {
     type: 'SET_GIFTEE',
@@ -94,6 +101,30 @@ export const getCart = () => {
         const cart = res.body
         dispatch(updateCart(cart))
       })
+  }
+}
+
+export const checkOutGifts = (gifts) => {
+  return function (dispatch) {
+    // we're optimistic ;)
+    //dispatch(requestCheckOut())
+    dispatch(clearCart())
+    // request.post('http://localhost:3000/api/addWish')
+    //   .send(newGift)
+    //   .then(() => {
+    //     dispatch(receiveGift())
+    //   })
+    //   .catch(err => {
+    //     dispatch(receiveGift())
+    //     dispatch(removeFromWishlist(newGift.id))
+    //     console.error(err)
+    //   })
+  }
+}
+
+function clearCart () {
+  return {
+    type: 'CLEAR_CART'
   }
 }
 

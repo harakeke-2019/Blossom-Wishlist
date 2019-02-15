@@ -1,16 +1,21 @@
 import React from 'react'
-import {connect} from 'react-redux'
-// import {getGifts} from '../actions'
-// import {requestGifts} from '../actions'
-// import {receivedGifts} from '../actions'
+import { connect } from 'react-redux'
+import CartItem from './CartItem'
+import {checkOutGifts} from '../actions'
 
 class Gifts extends React.Component {
+
+  checkOut = () => {
+    this.props.dispatch(checkOutGifts(this.props.gifts))
+  }
 
   render () {
     return (
       <div>
-        CART: <br/>
-        {this.props.gifts[0]}
+        {this.props.gifts.map((gift) => {
+          return <CartItem key = {gift.name} gift = {gift}/>
+        })}
+        <a href ="#" onClick={this.checkOut}>Check Out</a>
       </div>
     )
   }
