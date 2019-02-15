@@ -55,7 +55,7 @@ function receivedUser (users) {
 
 function requestWishList () {
   return {
-    type: 'REQUESTING_WISHLIST'  
+    type: 'REQUESTING_WISHLIST'
   }
 }
 
